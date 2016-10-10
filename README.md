@@ -1,2 +1,2 @@
 # simpleAPI
-# Setting up a simple API request to Heroku.
+# Setting up a simple API request on Heroku.
