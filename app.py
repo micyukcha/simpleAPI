@@ -24,7 +24,14 @@ e = create_engine('sqlite:///salaries.db')
 app = Flask(__name__)
 api = Api(app)
 
-@app.route('/departments', methods=['GET'])
+@app.route('/', methods=['GET'])
+def index():
+    return 'OK!'
+
+@app.route('/hello')
+def hello():
+    return 'Hello World!'
+
 
 class Departments_Meta(Resource):
     def get(self):
