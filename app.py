@@ -19,6 +19,8 @@ from json import dumps
 #create a engine for connecting to SQLite3
 #assuming salaries.db
 
+@app.route('/webhook', methods=['GET'])
+
 e = create_engine('sqlite:///salaries.db')
 
 app = Flask(__name__)
@@ -38,8 +40,6 @@ class Departmental_Salary(Resource):
     def get(self, department_name):
         conn = e.connect()
         query = conn.execute("select * from salaries where Department=? ", (department_name.upper(),))
-
-        #conn.execute("select * from salaries where Department='%s'"%department_name.upper())
         
         #Query the result and get cursor. Dump data to JSON is looked by extension
         result = {'data':[dict(zip(tuple(query.keys()), i)) for i in query.cursor]}
