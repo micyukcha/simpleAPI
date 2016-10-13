@@ -19,12 +19,12 @@ from json import dumps
 #create a engine for connecting to SQLite3
 #assuming salaries.db
 
-@app.route('/webhook', methods=['GET'])
-
 e = create_engine('sqlite:///salaries.db')
 
 app = Flask(__name__)
 api = Api(app)
+
+@app.route('/departments', methods=['GET'])
 
 class Departments_Meta(Resource):
     def get(self):
